@@ -2,7 +2,9 @@ class CuentaBancaria
   attr_accessor :user_name
 
   def initialize(user_name, number, vip = 0)
-    raise RangeError,"El numero de cuenta tiene un numero de digitos distinto de 8" if (number.digits).count != 8
+    if (number.digits).count != 8
+      raise RangeError,"El numero de cuenta tiene un numero de digitos distinto de 8" 
+    end
     @user_name = user_name
     @number = number
     @vip = vip
